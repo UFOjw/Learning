@@ -1,1 +1,1 @@
-My past-time. Things that I have found interesting for discover
+My past-time. Things that I have found interesting to explore
