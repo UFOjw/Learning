@@ -1,23 +1,49 @@
 # Gradient-Boosting
 
-Gradient boosting is a machine learning technique that consistently improves the quality of predictions by combining weak models into a strong model.
-
-The main idea is to train a new model that will correct the "errors" of the previous model, gradually improving the quality of the predictions at each iteration.
-
-This is achieved by finding the gradient of the loss function (eg MSE or MAE) with respect to the predictions of the current ensemble of models and training the new model on those errors.
-
 ![1](https://storage.yandexcloud.net/klms-public/production/learning-content/55/1255/22321/64360/300276/gradient_boosting_2.gif)
 
-The implemented algorithm represents an ensemble of decision trees. The class uses the `DecisionTreeRegressor` from the `sklearn` library to build trees.
+# Gradient Boosting Regressor (NumPy + scikit-learn)
 
-The class is initialized with the following arguments:
-* `n_estimators` - number of trees in the ensemble
-* `learning_rate` - coefficient taking into account the predictions of subsequent models
-* `max_depth` - decision tree depth
-* `min_samples_split` - the number of instances per leaf that allows the tree to continue building (stopping criterion)
-* `loss` - loss function (default MSE. Function should return error and loss gradient)
-* `verbose` - whether to display intermediate results
-* `subsample_size` - amount of data used to train one tree (in fractions)
-* `replace` - whether to sample with return
+This project implements a custom `GradientBoostingRegressor` class using NumPy and `DecisionTreeRegressor` from `scikit-learn`. It demonstrates the core principles of gradient boosting for regression tasks, including loss computation, gradient descent, and decision tree fitting.
 
-The class has a `fit` method for building a model, which takes two parameters `X_train`, `y_train` and the `predict` method for predicting new `X_test` data.
+## Features
+
+* Supports Mean Squared Error (MSE) loss
+* Gradient computation
+* Subsampling (stochastic boosting)
+* Scikit-learn-compatible `fit()` and `predict()` methods
+* Verbose mode for monitoring training
+
+## File Overview
+
+* `GradientBoostingRegressor` – main class implementing the boosting model
+* `_mse()` – computes MSE and its gradient
+* `_subsample()` – draws subsamples with or without replacement
+* `fit()` – trains the model using boosting iterations
+* `predict()` – performs prediction on new data
+
+## Example Usage
+
+```python
+from GradientBoosting import GradientBoostingRegressor
+from sklearn.datasets import make_regression
+from sklearn.metrics import mean_squared_error
+
+X, y = make_regression(n_samples=1000, n_features=20, noise=0.1)
+
+model = GradientBoostingRegressor(n_estimators=100, learning_rate=0.1, verbose=True)
+model.fit(X, y)
+predictions = model.predict(X)
+
+print("MSE:", mean_squared_error(y, predictions))
+```
+
+## Requirements
+
+* Python 3.x
+* NumPy
+* scikit-learn
+
+```bash
+pip install numpy scikit-learn
+```
