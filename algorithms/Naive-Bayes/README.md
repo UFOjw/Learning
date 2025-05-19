@@ -1,5 +1,26 @@
-# Naive-Bayes
+# Naive Bayes Classifier Project
 
-A Bayesian classifier is a probabilistic algorithm used in machine learning and statistics for categorization and prediction tasks. It is based on Bayes' theorem, which calculates the probability of a hypothesis given prior knowledge and evidence. The classifier uses these probabilities to assign a class label to new instances based on their feature values.
+## Overview
 
-This classifier uses an **iris** dataset to train and prediction.
+This project contains a Jupyter Notebook that demonstrates the implementation and evaluation of the Naive Bayes classification algorithm. Naive Bayes is a probabilistic machine learning algorithm based on Bayes' Theorem, often used in text classification and spam detection tasks.
+
+## Key Features
+
+* Introduction to the Naive Bayes classifier
+* Data preprocessing and exploratory data analysis (EDA)
+* Implementation using scikit-learn
+* Model evaluation with accuracy, confusion matrix, and classification report
+
+## Requirements
+
+To run the notebook, ensure the following Python packages are installed:
+
+```bash
+pip install numpy pandas matplotlib scikit-learn
+```
+
+You can use Jupyter Notebook or JupyterLab to open and run the file.
+
+## Usage
+
+This notebook serves educational purposes and can be used to understand the basic principles of the Naive Bayes classifier and its application on structured datasets.
